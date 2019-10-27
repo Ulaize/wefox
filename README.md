@@ -1,6 +1,6 @@
 ### How to run the project
 
-1. Create a .env file to load the environment variables. Remember that you need set up your Google Geocoding API_KEY and you email PASSWORD. Also you will need to enable insecure applications to your email account https://support.google.com/accounts/answer/6010255
+1. Create a .env file to load the environment variables. To do this, you will need to set up your Google Geocoding API_KEY and your email PASSWORD. You will also need to enable insecure applications to your email account https://support.google.com/accounts/answer/6010255
 
 ```
 API_KEY=api_key
@@ -37,7 +37,7 @@ Note: I had to use -d option to detach process from the stdout, I tried to do mo
 * GET /weather this endpoint has 2 options if you send address query param  will proceed to call to /geocoding endpoint to get the latitude and longitude and then store this information (address+location) in a MongoDB document with [Mongoose](https://github.com/ekaitzht/wefox/blob/master/models/address.js). If you send the address you can send the latitude and longitude and the endpoint won't spend time and 💰to call the Google Geocoding api. This decision has been made to use this endpoint for the batch process to get the weather without doing the geocoding proccess.
 * POST /validateandweather this endpoint is the entry point of the project it will call to /validate to validate the address object if it is valid will get call to /weather endpoint. 
 
-#Here I leave some curl requests to the API:
+#Find here the curl requests to the API:
 
 ```
 curl -X POST http://localhost:3000/validateandweather --header "Content-Type: application/json" -d '{"street":"Glandore Road","streetNumber":"9","town":"Dublin","postalCode":"D9","country":"Ireland"}'
